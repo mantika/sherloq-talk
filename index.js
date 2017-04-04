@@ -12,7 +12,10 @@ module.exports = {
             "data": {
               "text": args.body
             },
-            "criteria": ["hate_speech"]
+            "criteria": ["hate_speech"],
+            "labels": {
+              "comment_id": args.asset_id
+            }
           };
 
           let headers = {
