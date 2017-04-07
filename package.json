@@ -1,0 +1,16 @@
+{
+  "name": "sherloq-talk",
+  "version": "0.0.1",
+  "description": "Sherloq Coral Project Talk plugin",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mantika/sherloq-talk.git"
+  },
+  "author": "Mantika Inc",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/mantika/sherloq-talk/issues"
+  },
+  "homepage": "https://github.com/mantika/sherloq-talk#readme"
+}
