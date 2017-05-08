@@ -14,7 +14,7 @@ module.exports = {
         post: async (obj, args, context, info, result) => {
           let body = {
             "data": {
-              "text": args.body
+              "text": result.comment.body
             },
             "criteria": ["hate_speech"],
             "labels": {
@@ -41,7 +41,7 @@ module.exports = {
                     || json.scores.hate_speech[0].extra.label == 'healthy') {
 
                   sherloqDebug('Accepting comment')
-                  return CommentsService.setStatus(result.comment.id, 'ACCEPTED')
+                  return CommentsService.pushStatus(result.comment.id, 'ACCEPTED')
                   .then(() => result.comment.status = 'ACCEPTED')
 
                 }
@@ -50,7 +50,7 @@ module.exports = {
                      || json.scores.hate_speech[0].extra.label == 'offensive') {
 
                   sherloqDebug('Rejecting comment')
-                  return CommentsService.setStatus(result.comment.id, 'REJECTED')
+                  return CommentsService.pushStatus(result.comment.id, 'REJECTED')
                   .then(() => result.comment.status = 'REJECTED')
 
                 } else if ((config.flag && json.scores.hate_speech[0].score >= config.flag)
